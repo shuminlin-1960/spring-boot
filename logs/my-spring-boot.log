@@ -1,0 +1,28 @@
+2024-08-23T01:40:17.376-04:00  WARN 28240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h12m695ms979µs).
+2024-08-23T08:48:34.686-04:00  WARN 28240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h54m17s43ms621µs800ns).
+2024-08-23T09:52:07.503-04:00  WARN 28240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m31s909ms531µs300ns).
+2024-08-23T12:10:19.974-04:00  WARN 28240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=43m39s704ms209µs900ns).
+2024-08-23T15:01:59.526-04:00  WARN 28240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h34m38s401ms413µs100ns).
+2024-08-23T20:10:08.195-04:00  WARN 28240 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h54m36s540ms858µs600ns).
+2024-08-23T20:13:50.043-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2024-08-23T20:13:50.047-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@8c11fb0, started on Fri Aug 16 12:20:39 EDT 2024
+2024-08-23T20:13:50.057-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from REFUSING_TRAFFIC to REFUSING_TRAFFIC
+2024-08-23T20:13:50.058-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c739d8, started on Fri Aug 16 12:20:58 EDT 2024, parent: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@8c11fb0
+2024-08-23T20:13:50.071-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147482623
+2024-08-23T20:13:50.083-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
+2024-08-23T20:13:50.083-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147481599
+2024-08-23T20:13:50.106-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2024-08-23T20:13:50.131-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2024-08-23T20:13:50.132-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'applicationTaskExecutor' completed its stop procedure
+2024-08-23T20:13:50.132-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483135
+2024-08-23T20:13:50.132-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147482623
+2024-08-23T20:13:50.132-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
+2024-08-23T20:13:50.132-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147481599
+2024-08-23T20:13:50.142-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2024-08-23T20:13:50.142-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147483647
+2024-08-23T20:13:50.142-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'springBootLoggingLifecycle' completed its stop procedure
+2024-08-23T20:13:50.146-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2024-08-23T20:13:50.150-04:00  INFO 28240 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-23T20:13:50.170-04:00  INFO 28240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-08-23T20:13:50.175-04:00  INFO 28240 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-08-23T20:13:50.177-04:00 DEBUG 28240 --- [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Custom destroy method 'close' on bean with name 'simpleMeterRegistry' completed
