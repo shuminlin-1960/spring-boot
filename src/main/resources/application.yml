@@ -55,10 +55,6 @@ spring:
 #                       client-secret: 156db1a6100e31a086fee459d7f45f3830543e43
                         clientId: Iv23ctgAMjS3v0ZAYMf5
                         clientSecret: f4b5e07831229507aa187bec075b7b18bf938583
-#                    google:
-#                        clientId: 732626077003-msiob2v2kor945tcpu3is3s45p25gaci.apps.googleusercontent.com
-#                        clientSecret: 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
-
 
         application:
         name: spring-boot-tutorial
