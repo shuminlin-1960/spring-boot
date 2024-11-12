@@ -1,9 +1,9 @@
 server:
-    port: 8090
+    port: 8060
 
 management:
     server:
-        port: 8091
+        port: 8070
     endpoints:
         web:
             base-path: /manager
@@ -32,6 +32,9 @@ spring:
         active: dev
 ---
 spring:
+    application:
+        name: spring-boot-tutorial
+
     config:
         activate:
             on-profile: dev
@@ -43,21 +46,11 @@ spring:
 #For default Spring-offered access authentication
     security:
         user:
+            name: user
             password: user
 
-#For OAuth2
-        oauth2:
-            client:
-                registration:
-                    github:
-#Also works
-#                       client-id: Iv23ctgAMjS3v0ZAYMf5
-#                       client-secret: 156db1a6100e31a086fee459d7f45f3830543e43
-                        clientId: Iv23ctgAMjS3v0ZAYMf5
-                        clientSecret: f4b5e07831229507aa187bec075b7b18bf938583
 
-        application:
-        name: spring-boot-tutorial
+
     datasource:
         url: jdbc:mysql://localhost:3306/dcbapp
         driverClassName: com.mysql.cj.jdbc.Driver
@@ -65,8 +58,16 @@ spring:
         password: admin123
     jpa:
         hibernate:
+#            Modification of schema may happen due to any JPA changes but tables or columns even if they are no more required by the application
             ddl-auto: update
         show-sql: true
+
+#In-memoery-DB based DataSource
+#    h2:
+#      console:
+#          enabled: true
+#    datasource:
+#        url: jdbc:h2:mem:test
 
     app:
         jwtSecret:  mySecretKey123456789fewq34qhgqhfqphfqhfqhqphfqhferqrqwfeqfwqi93yrfhqhfqqvalai988349pqqhvoifp98hwphpwqvpqvpqvpqvqvknfqfn9wrrf
@@ -84,12 +85,14 @@ spring:
 ---
 
 spring:
+    application:
+        name: spring-boot-tutorial-on-test
+
     config:
         activate:
             on-profile: test
 
-    application:
-        name: spring-boot-tutorial
+
     datasource:
         url: jdbc:mysql://localhost:3306/dcbapp-test
         driverClassName: com.mysql.cj.jdbc.Driver
@@ -97,7 +100,8 @@ spring:
         password: admin123
     jpa:
         hibernate:
-            ddl-auto: update
+#            similar to create, with the addition that Hibernate will drop the database after all operations are completed. Typically used for unit testing
+            ddl-auto: create-drop
         show-sql: true
 ---
 
@@ -107,7 +111,7 @@ spring:
             on-profile: prod
 
     application:
-        name: spring-boot-tutorial
+        name: spring-boot-tutorial-on-prod
     datasource:
         url: jdbc:mysql://localhost:3306/dcbapp-prod
         driverClassName: com.mysql.cj.jdbc.Driver
@@ -115,7 +119,9 @@ spring:
         password: admin123
     jpa:
         hibernate:
-            ddl-auto: update
+#            Hibernate only validates whether the tables and columns exist. update/create is typically not used directly in PROD to avoid unwanted create-drop/update of schema
+#            ddl-auto: validate
+            ddl-auto: none
     show-sql: true
 
 ---

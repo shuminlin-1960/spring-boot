@@ -17,3 +17,4 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
  public List<Department> findDepartmentByNameLessThan(String name);
 
 }
+

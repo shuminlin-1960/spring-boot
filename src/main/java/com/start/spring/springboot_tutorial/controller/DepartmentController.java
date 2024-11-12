@@ -34,7 +34,7 @@ public class DepartmentController {
     @Value("${welcome.message}")
     private String welcomeMessage;
 
-//Verified working
+//Read from @PropertySource("classpath:my-resources.properties"), verified working
     @Value("${my.key}")
     private String myProperties;
 

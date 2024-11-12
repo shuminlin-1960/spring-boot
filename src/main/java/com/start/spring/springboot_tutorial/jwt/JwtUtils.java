@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import java.security.Key;
 import java.util.Date;
 
 @Component
@@ -27,7 +28,7 @@ public class JwtUtils {
     @Value("${spring.app.jwtExpirationMs}")
     private String jwtExpirationMs;
 
-    public  String getJwtFromHeader(HttpServletRequest request) {
+    public  String getJwtTokenFromHeader(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
         logger.debug("Authorization Header: {}", bearerToken);
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
@@ -76,7 +77,8 @@ public class JwtUtils {
         return false;
     }
 
-    private SecretKey key() {
+//    private SecretKey key() {
+    private Key key() {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
     }
 }

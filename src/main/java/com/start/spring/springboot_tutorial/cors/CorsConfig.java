@@ -19,8 +19,8 @@ String corsAllowedPath;
 @Autowired
 String corsAllowedOrigins;
 
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
+ @Bean
+ public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {

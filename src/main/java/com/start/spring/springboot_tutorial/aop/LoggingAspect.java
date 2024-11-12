@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
+import java.time.*;
+import java.util.Date;
 
 @Aspect
 @Component
@@ -74,9 +76,23 @@ public class LoggingAspect {
     public Object around(ProceedingJoinPoint jp) throws Throwable{
         System.out.println("Around method called: " + jp.getSignature());
 
+
+
         Object obj = null;
         try {
+            LocalDateTime start = LocalDateTime.now();
+            Date startDate = new Date();
             obj = jp.proceed();
+            LocalDateTime end = LocalDateTime.now();
+            Date endDate = new Date();
+
+            long duration = (end.getNano () - start.getNano()) / 1000000;
+
+            long milli = endDate.getTime() - startDate.getTime();
+
+            System.out.println("Time taken for the method call calculate by LocalDateTime: " + duration);
+            System.out.println("Time taken for the method call calculate by old Date: " + milli);
+
         } catch (Exception e) {
             throw e;
         }
