@@ -7,20 +7,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Configuration
 public class CorsConfig {
-//    @Value("${cors.allowed.origins}")
-//    private String[] allowedCorSOrigins;
-@Value("cors.allowed.path")
-@Autowired
-String corsAllowedPath;
+    //    @Value("${cors.allowed.origins}")
+    //    private String[] allowedCorSOrigins;
+    @Value("${cors.allowed.path}")
+    @Autowired
+    String corsAllowedPath;
 
-@Value("cors.allowed.origins")
-@Autowired
-String corsAllowedOrigins;
+    @Value("${cors.allowed.origins}")
+    @Autowired
+    String corsAllowedOrigins;
 
- @Bean
- public WebMvcConfigurer corsConfigurer() {
+     @Bean
+     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
@@ -35,15 +39,23 @@ String corsAllowedOrigins;
 //Works
 //                registry.addMapping("/departments/**")
 //                        .allowedOrigins("http://127.0.0.1:4200, http://127.0.0.1:8091")
-                registry.addMapping(corsAllowedPath)
-                        .allowedOrigins(corsAllowedOrigins)
+                String[] paths = null;
+                if (corsAllowedPath != null) {
+                    paths = corsAllowedPath.split("[,; ]\s?");
+                }
+
+                List<String> pathList = Arrays.asList(paths);
+                pathList.stream().forEach( path ->
+                    registry.addMapping(path)
+                            .allowedOrigins(corsAllowedOrigins)
 //                        .allowedOriginPatterns("*") //also works
-                        .allowCredentials(false) //Should be false for "*" mapping
-                        .allowedHeaders("*")
-                        .allowedMethods("*")
-                        .maxAge(60*30)
-                        .exposedHeaders("*");
+                            .allowCredentials(false) //Should be false for "*" mapping
+                            .allowedHeaders("*")
+                            .allowedMethods("*")
+                            .maxAge(60 * 30)
+                            .exposedHeaders("*")
+                ) ;
             }
         };
-    }
+     }
 }

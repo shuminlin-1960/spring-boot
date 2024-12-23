@@ -88,10 +88,11 @@ public class SecurityConfigInH2MemoryBased {
 
 
 //TODO test      httpSecurity.formLogin(form -> form.defaultSuccessUrl("/hello", true));
-//        If enabled, any path like /user, /admin, /hello instead POST-based /signin can be used to invoke the basic/form login.
+//        If enabled, any path like /user, /admin, /hello instead POST-based /signin
+//        can be used to invoke the basic or form login.
 //        Otherwise, the only way to sign in is via the POST-based "/signin"
 //        httpSecurity.httpBasic(withDefaults());
-//          httpSecurity.formLogin(withDefaults());
+//        httpSecurity.formLogin(withDefaults());
 
 //        Also works
 //        httpSecurity.headers(headers ->

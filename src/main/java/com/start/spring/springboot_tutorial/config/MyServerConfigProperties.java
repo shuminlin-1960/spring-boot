@@ -19,21 +19,4 @@ import org.springframework.stereotype.Component;
 public class MyServerConfigProperties {
     private String type;
     private String port;
-
-//    Replaced by @Data
-//    public String getType() {
-//        return type;
-//    }
-//
-//    public String getPort() {
-//        return port;
-//    }
-//
-//    public void setPort(String port) {
-//        this.port = port;
-//    }
-//
-//    public void setType(String type) {
-//        this.type = type;
-//    }
 }

@@ -2,25 +2,42 @@ server:
     port: 8060
 
 management:
-    server:
-        port: 8070
+# Use the same port as the app, otherwise OAth2 security filter chain has to be separately implemented
+#    server:
+#        port: 8070
     endpoints:
         web:
             base-path: /manager
             exposure:
                 include: "*"
+    endpoint:
+        env:
+            enabled: true
+#            Works but NOT recommended
+#            show-values: ALWAYS
+
+#            Must be authorized by using token in the request header by the security filter chain explicitly
+            show-values: WHEN_AUTHORIZED
+            keys-to-sanitize: password,secret
+
+        configprops:
+            enabled: true
+#            show-values: ALWAYS
+            show-values: WHEN_AUTHORIZED
+            keys-to-sanitize: password,secret
+
     trace:
         http:
             enabled: true
     info:
         env:
             enabled: true
-            show-values: always
         os:
             enabled: true
         java:
             enabled: true
 #                exclude: "env, beans"
+
 
 #works
 #logging:

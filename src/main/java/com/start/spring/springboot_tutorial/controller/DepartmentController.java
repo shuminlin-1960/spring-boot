@@ -1,5 +1,6 @@
 package com.start.spring.springboot_tutorial.controller;
 
+import com.nimbusds.oauth2.sdk.util.JSONUtils;
 import com.start.spring.springboot_tutorial.config.MyServerConfigProperties;
 import com.start.spring.springboot_tutorial.entity.Department;
 import com.start.spring.springboot_tutorial.service.DepartmentService;
@@ -10,12 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -56,13 +59,33 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments")
-    public List<Department> fetchDepartments() {
+    public ResponseEntity<List<Department>> fetchDepartments() {
         LOGGER.info("Configured protocol: type=" + configProperties.getType() + ", port=" + configProperties.getPort());
         LOGGER.info("My configure property: " + myProperties);
 
         LOGGER.info(" fetchDepartments called");
-        System.out.println("In DepartmentController.fetchDepartments before calling service.fetchDepartments()");
-        return service.fetchDepartments();
+        LOGGER.info("In DepartmentController.fetchDepartments before calling service.fetchDepartments()");
+        List<Department>  depts = new ArrayList<>();
+        try {
+            depts = service.fetchDepartments();
+//            LOGGER.info("Depts returned to client: %s", depts != null? JSONUtils.toString(depts) : depts);
+//            return depts;
+
+//            This is a working hacking trick to allow CORS accesses
+//            HttpHeaders headers = new HttpHeaders();
+//            headers.add("Access-Control-Allow-Origin", "http://127.0.0.1:4200");
+//            headers.add("Access-Control-Allow-Path", "/departments/**");
+//            return new ResponseEntity<>(depts, headers, HttpStatus.OK);
+
+
+            return new ResponseEntity<>(depts, HttpStatus.OK);
+
+        } catch (Exception e) {
+            LOGGER.error("Error when retrieving departments from the JAP");
+//            return depts;
+            return new ResponseEntity<>(depts, HttpStatus.NOT_FOUND);
+        }
+
     }
 
     @GetMapping("/departments/{id}")
@@ -73,7 +96,7 @@ public class DepartmentController {
     }
 
 
-    @PreAuthorize("hasRole('USER')")
+//    @PreAuthorize("hasRole('USER')")
     @GetMapping("/departments/name/{name}")
     public Department findByDepartmentName(@PathVariable("name") String name) {
         LOGGER.info("findByDepartmentName called");
@@ -89,14 +112,14 @@ public class DepartmentController {
     }
 
 
-
+//    @PreAuthorize("hasRole('USER')")
     @DeleteMapping("/departments")
     public void deleteAllDepartments()  {
         service.deleteAllDepartments();
         LOGGER.info("deleteAllDepartments called");
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('USER')")
     @DeleteMapping("/departments/{id}")
     public boolean deleteDepartmentById(@Valid @PathVariable("id") Long deptId)  {
         service.deleteDepartmentById(deptId);

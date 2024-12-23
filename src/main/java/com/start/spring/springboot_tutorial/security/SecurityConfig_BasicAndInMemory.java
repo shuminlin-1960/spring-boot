@@ -52,7 +52,7 @@ public class SecurityConfig_BasicAndInMemory {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests(authorizedRequests -> authorizedRequests.anyRequest().authenticated());
+        httpSecurity.authorizeHttpRequests(requests -> requests.anyRequest().authenticated());
 //        httpSecurity.authorizeHttpRequests(authorizedRequests -> authorizedRequests.requestMatchers(AUTH_WHITELIST).authenticated());
         httpSecurity.sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

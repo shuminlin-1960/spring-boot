@@ -53,6 +53,7 @@ public class GreetingsController {
         return "Hello, admin!";
     }
 
+    /**
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
 
@@ -83,4 +84,5 @@ public class GreetingsController {
         return ResponseEntity.ok(response);
 
     }
+**/
 }
