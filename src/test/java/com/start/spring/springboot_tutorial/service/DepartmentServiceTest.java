@@ -1,7 +1,8 @@
 package com.start.spring.springboot_tutorial.service;
 
-import com.start.spring.springboot_tutorial.entity.Department;
-import com.start.spring.springboot_tutorial.repostitory.DepartmentRepository;
+import com.start.spring.springboot_tutorial.dao.db2.entity.Department;
+import com.start.spring.springboot_tutorial.dao.db2.repository.DepartmentRepository;
+import com.start.spring.springboot_tutorial.service.department.DepartmentService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

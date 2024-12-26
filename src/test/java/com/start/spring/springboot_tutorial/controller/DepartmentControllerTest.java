@@ -1,7 +1,8 @@
 package com.start.spring.springboot_tutorial.controller;
 
-import com.start.spring.springboot_tutorial.entity.Department;
-import com.start.spring.springboot_tutorial.service.DepartmentService;
+import com.start.spring.springboot_tutorial.controller.department.DepartmentController;
+import com.start.spring.springboot_tutorial.dao.db2.entity.Department;
+import com.start.spring.springboot_tutorial.service.department.DepartmentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

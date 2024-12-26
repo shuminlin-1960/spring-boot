@@ -1,12 +1,10 @@
 package com.start.spring.springboot_tutorial.aop;
 
-import com.start.spring.springboot_tutorial.entity.Department;
+import com.start.spring.springboot_tutorial.dao.db2.entity.Department;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
@@ -26,7 +24,7 @@ import java.util.List;
 public class LoggingAspect {
 //    Logger LOGGER = LoggerFactory.getLogger(LoggingAspect.class);
 
-    @Before(value="execution(* *.*.*.*.controller.DepartmentController.*(..))")
+    @Before(value="execution(* *.*.*.*.controller.department.DepartmentController.*(..))")
     public void beforelogger(JoinPoint jp) {
         System.out.println("in @Before");
         System.out.println("Before method called: " + jp.getSignature());
@@ -36,7 +34,7 @@ public class LoggingAspect {
         }
     }
 
-    @After(value="execution(* com.start.spring.springboot_tutorial.controller.DepartmentController.*(..))")
+    @After(value="execution(* com.start.spring.springboot_tutorial.controller.department.DepartmentController.*(..))")
     public void afterlogger(JoinPoint jp) {
         System.out.println("in @After");
         System.out.println("After method called: " + jp.getSignature());
@@ -48,7 +46,7 @@ public class LoggingAspect {
 
 
 //    TODO Make these two work
-    @AfterReturning(value = "execution(java.util.List<com.start.spring.springboot_tutorial.entity.Department> com.start.spring.springboot_tutorial.controller.DepartmentController.fetchDepartments(..))",
+    @AfterReturning(value = "execution(java.util.List<com.start.spring.springboot_tutorial.dao.db2.entity.Department> com.start.spring.springboot_tutorial.controller.department.DepartmentController.fetchDepartments(..))",
         returning = "result")
       public void afterReturning(JoinPoint Jp, List<Department> result) {
         System.out.println("In @AfterReturning, return value:" + result);
@@ -56,7 +54,7 @@ public class LoggingAspect {
     }
 
 
-    @AfterThrowing(value="execution(java.util.List<com.start.spring.springboot_tutorial.entity.Department> com.start.spring.springboot_tutorial.controller.DepartmentController.fetchDepartments(..))",
+    @AfterThrowing(value="execution(java.util.List<com.start.spring.springboot_tutorial.dao.db2..entity.Department> com.start.spring.springboot_tutorial.controller.department.DepartmentController.fetchDepartments(..))",
             throwing = "e")
     public void afterThrowing(JoinPoint Jp, Exception e) {
 
@@ -71,7 +69,7 @@ public class LoggingAspect {
     @Pointcut ("within(com.start.spring.springboot_tutorial.controller.*)")
 
 //    Class-based
-//    @Pointcut ("this(com.start.spring.springboot_tutorial.controller.DepartmentController)")
+//    @Pointcut ("this(com.start.spring.springboot_tutorial.controller.department.DepartmentController)")
 
 //    Method-based
 //    Anywhere at the target methods tagged with @CustomerAnnotation, NEED CODE CHANGES

@@ -68,16 +68,16 @@ spring:
 
 
 
-    datasource:
-        url: jdbc:mysql://localhost:3306/dcbapp
-        driverClassName: com.mysql.cj.jdbc.Driver
-        username: root
-        password: admin123
-    jpa:
-        hibernate:
-#            Modification of schema may happen due to any JPA changes but tables or columns even if they are no more required by the application
-            ddl-auto: update
-        show-sql: true
+#    datasource:
+#        url: jdbc:mysql://localhost:3306/dcbapp
+#        driverClassName: com.mysql.cj.jdbc.Driver
+#        username: root
+#        password: admin123
+#    jpa:
+#        hibernate:
+##            Modification of schema may happen due to any JPA changes but tables or columns even if they are no more required by the application
+#            ddl-auto: update
+#        show-sql: true
 
 #In-memoery-DB based DataSource
 #    h2:

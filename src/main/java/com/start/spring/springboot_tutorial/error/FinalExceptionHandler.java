@@ -1,14 +1,12 @@
 package com.start.spring.springboot_tutorial.error;
 
-import com.start.spring.springboot_tutorial.entity.ErrorMessage;
-import jakarta.validation.ValidationException;
+import com.start.spring.springboot_tutorial.dao.ErrorMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;

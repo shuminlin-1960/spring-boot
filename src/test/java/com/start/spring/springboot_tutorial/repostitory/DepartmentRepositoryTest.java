@@ -1,14 +1,11 @@
 package com.start.spring.springboot_tutorial.repostitory;
 
-import com.start.spring.springboot_tutorial.entity.Department;
+import com.start.spring.springboot_tutorial.dao.db2.entity.Department;
+import com.start.spring.springboot_tutorial.dao.db2.repository.DepartmentRepository;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
